@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 public class MainClass
 {
@@ -6,30 +6,28 @@ public class MainClass
     {
         Console.Write("Введите первое значение: ");
         int startValue = int.Parse(Console.ReadLine());
-        Console.Write("Введите первое значение: ");
+        Console.Write("Введите второе значение: ");
         int endValue = int.Parse(Console.ReadLine());
 
-        bool[] prime = new bool[endValue+1];
+        bool[] prime = new bool[endValue + 1];
 
-        for (int i = 0; i<=endValue; i++)
+        for (int i = 0; i <= endValue; i++)
             prime[i] = true;
 
-        for (int i = 2; i * 2 <=endValue; i++)
+        for (int p = 2; p * p <= endValue; p++)
         {
-
-            if (prime[i])
+            if (prime[p])
             {
-                for(int p = 2 * i; p<=endValue; p+=i)
+                for (int i = p * p; i <= endValue; i += p)
                 {
-                    prime[p] = false;
+                    prime[i] = false;
                 }
-                
             }
-
         }
+
         int sum = 0;
 
-        for (int i = Math.Max(2,startValue); i <= endValue; i++)
+        for (int i = Math.Max(2, startValue); i <= endValue; i++)
         {
             if (prime[i])
             {
